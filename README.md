@@ -1,9 +1,9 @@
 > 提醒： 免费空间请不要滥用！！！
 
 本项目支持部署kintohub和heroku两个空间，下面是部署到kintohub方法，部署到heroku方法请见：[Deploy to Heroku
-](https://github.com/yeahwu/kinto/blob/master/v2-heroku.md)
+](https://github.com/stonenyy/kinto/blob/master/v2-heroku.md)
 
-利用kintohub免费空间部署v2ray和tor，部署成功后，可用v2ray客户端直接访问tor网络，比如暗网.onion，v2ray.json文件中设置了路由分流了tor网络，非tor流量不受影响。
+利用kintohub免费空间部署v2ray和tor，部署成功后，可用v2ray客户端直接访问tor网络，v2ray.json文件中设置了路由分流了tor网络，非tor流量不受影响。
 
 ### 部署服务端
 1. 点开 https://app.kintohub.com/ 新建一个APP，点击 Create Service ,然后创建 Web App 如图：
@@ -38,8 +38,4 @@ v2ray的配置文件config.json，可以改为自己的私密链接，比如 htt
 
 方法二：
 
-Fork本项目，到config.json里面修改uuid或其它，然后到Dockerfile里面修改ENV CONFIG= 指向链接，例如：`ENV CONFIG=https://raw.githubusercontent.com/yeahwu/kinto/master/config.json`指向你自己项目的config.json文件。
-
-支持本博：https://starts.sh/donation.html
-
-测试暗网地址：http://vq7kihyfoqcoluju.onion/donation.html
+Fork本项目，到config.json里面修改uuid或其它，然后到Dockerfile里面修改ENV CONFIG= 指向链接，例如：`ENV CONFIG=https://raw.githubusercontent.com/stonenyy/kinto/master/config.json`指向你自己项目的config.json文件。
