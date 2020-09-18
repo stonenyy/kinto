@@ -2,26 +2,35 @@
     "inbounds": [
         {
             "port": 18888,
-            "protocol": "vmess",
+            "tag": "VLESS-in",
+            "protocol": "VLESS",
             "settings": {
                 "clients": [
                     {
-                        "id": "a9195dda-6052-46b4-adfa-7b3223dfe221"
+                        "id": "a9195dda-6052-46b4-adfa-7b3223dfe221",
+                        "alterId": 0
                     }
-                ]
+                ],
+                "decryption": "none"
             },
             "streamSettings": {
-                "network": "ws"
+                "network": "ws",
+                "wsSettings": {
+                    "path":"/"
+                }
             }
         }
     ],
 
     "outbounds": [
         {
-            "protocol": "freedom"
+            "protocol": "freedom",
+            "settings": { },
+            "tag": "direct"
         },
         {
             "protocol": "blackhole",
+            "settings": { },
             "tag": "blocked"
         },
         {
@@ -37,22 +46,27 @@
             }
         }
     ],
+    
+    "dns": {
+      "servers": [
+          "https+local://1.1.1.1/dns-query",
+	  "1.1.1.1",
+	  "1.0.0.1",
+	  "8.8.8.8",
+	  "8.8.4.4",
+	  "localhost"
+      ]
+    },
 
     "routing": {
+        "domainStrategy": "AsIs",
         "rules": [
             {
                 "type": "field",
-                "outboundTag": "sockstor",
-                "domain": [
-                    "geosite:tor"
-                ]
-            },
-            {
-                "type": "field",
-                "outboundTag": "blocked",
-                "domain": [
-                    "geosite:category-ads-all"
-                ]
+                "inboundTag": [
+                    "VLESS-in"
+                ],
+                "outboundTag": "direct"
             }
         ]
     }
