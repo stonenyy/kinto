@@ -10,7 +10,7 @@
 
 ![创建 web app](/img/kinto2.PNG)
 
-2. Repository 填上git链接和默认分支master。
+2. Repository 填上git链接和默认分支master
 
 ![repository](/img/kinto1.PNG)
 
